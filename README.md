@@ -1,8 +1,16 @@
+## USER NGINX ALLOW IP ADD 시 conf file
+
+```
+allow 1.1.1.1;
+aloow 2.2.2.2;
+...
+```
+
 ## nginx docker setting
 
 | enviroment variable |default |  Description|
 |--------|--------|------|
- USER\_NGINX\_ALLOWIP|no | prep node IP 외 allow ip 추가 여부 (yes/no), yes 경우 ./user\_conf
+ USER\_NGINX\_ALLOWIP|no | prep node IP 외 allow ip 추가 여부 (yes/no), yes 경우 해당경로/etc/nginx/user\_conf 마운트 필수
  PREP\_MODE|no | nginx allow ip 가 dynamic 할 경우 (yes/no)
  PREP\_NODE\_LIST\_API| | prep node ip 들 확인하기 위한 URL
  PREP\_LISTEN\_PORT| | prep mode 시 필수
