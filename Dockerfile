@@ -8,8 +8,8 @@ FROM ubuntu:16.04
 ENV TZ "Asia/Seoul"
 
 ### nginx allow dynamic ip cron setting
-ADD ./policy/prepnode_ipscan_diff_crontab /etc/cron.d/prepnode_ipscan_diff_crontab
-RUN chmod 0644 /etc/cron.d/prepnode_ipscan_diff_crontab
+ADD ./policy/prepnode_ipscan_cron /etc/cron.d/prepnode_ipscan_cron
+RUN chmod 0644 /etc/cron.d/prepnode_ipscan_cron
 
 RUN echo $TZ > /etc/timezone && \
     apt-get update && apt-get install -y tzdata inotify-tools jq cron && \

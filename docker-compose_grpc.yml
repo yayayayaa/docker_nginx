@@ -21,7 +21,8 @@ nginx:
         PREP_MODE: "yes"
         PREP_LISTEN_PORT: 9000
         PREP_PROXY_PASS_ENDPOINT: "http://prep:9000"
-        CHANNEL_MANAGE_DATA_URL: "preptest01:9000/api/v3"
+        PREP_NODE_LIST_API: "preptest01:9000/api/v3"
+        USER_NGINX_ALLOWIP: "yes"
         #PROXY_PASS_ENDPOINT: 'http://13.112.13.42:9000'
         LISTEN_PORT: 9000
         USE_VTS_STATUS: "yes"

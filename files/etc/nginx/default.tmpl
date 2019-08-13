@@ -30,6 +30,9 @@ server {
     error_log   /var/log/nginx/$host-error.log error;
     location / {
         include /etc/nginx/conf.d/*.conf;
+        {{ if eq .Env.USER_NGINX_ALLOWIP "yes" }}
+        include /etc/nginx/user_conf/*.conf;
+        {{ end }}
         deny all;
         proxy_pass {{.Env.PREP_PROXY_PASS_ENDPOINT}};
         proxy_set_header X-Real-IP $remote_addr;
@@ -100,8 +103,13 @@ server {
             {{ end }}
         {{ end }}        
 
-        include /etc/nginx/conf.d/*.txt;
+        {{ if eq .Env.USER_NGINX_ALLOWIP "yes" }}
+        include /etc/nginx/user_conf/*.conf;
+        {{ end }}
+        {{ if eq .Env.PREP_MODE "yes" }}
+        include /etc/nginx/conf.d/*.conf;
         deny all;
+        {{ end }}
         grpc_pass {{.Env.PROXY_PASS_ENDPOINT}};
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
