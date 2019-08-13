@@ -29,6 +29,14 @@ server {
     access_log  /var/log/nginx/$host-access.log main if=$loggable;
     error_log   /var/log/nginx/$host-error.log error;
     location / {
+        {{ if eq .Env.USE_NGINX_THROTTLE "yes" }}
+            {{ if eq .Env.NGINX_THROTTLE_BY_IP "yes" }}
+        limit_req zone=by_ip burst={{.Env.NGINX_BURST}} {{.Env.NGINX_NODELAY}};
+            {{ end }}
+            {{ if eq .Env.NGINX_THROTTLE_BY_URI "yes" }}
+        limit_req zone=by_uri burst={{.Env.NGINX_BURST}} {{.Env.NGINX_NODELAY}};
+            {{ end }}
+        {{ end }}
         include /etc/nginx/conf.d/*.conf;
         {{ if eq .Env.USER_NGINX_ALLOWIP "yes" }}
         include /etc/nginx/user_conf/*.conf;
