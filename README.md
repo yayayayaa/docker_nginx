@@ -2,8 +2,11 @@
 
 | enviroment variable |default |  Description|
 |--------|--------|------|
+ USER\_NGINX\_ALLOWIP|no | prep node IP 외 allow ip 추가 여부 (yes/no), yes 경우 ./user\_conf
  PREP\_MODE|no | nginx allow ip 가 dynamic 할 경우 (yes/no)
- CHANNEL\_MANAGE\_DATA\_URL| | node ip 들 확인하기 위한 URL
+ PREP\_NODE\_LIST\_API| | prep node ip 들 확인하기 위한 URL
+ PREP\_LISTEN\_PORT| | prep mode 시 필수
+ PREP\_PROXY\_PASS\_ENDPOINT| | prep mode 시 필수
  USE\_DOCKERIZE|yes  | go template 사용 여부 ( yes/no )
  VIEW\_CONFIG|no       | 시작시 config 출력 여부 ( yes/no )
  UPSTREAM|localhost|localhost

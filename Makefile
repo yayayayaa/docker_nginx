@@ -1,5 +1,5 @@
 #REPO = dr.yt.com
-REPO_HUB = yjlim2-last
+REPO_HUB = yjlim-lastest
 NAME = nginx
 VERSION = 1.16.0
 TAGNAME = $(VERSION)
