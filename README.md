@@ -2,13 +2,13 @@
 ```
 /etc/nginx
 +-- conf.d
-    +-- prepnode_allowips.conf
+|   +-- prepnode_allowips.conf
 +-- policy
-    +-- prepnode_dynamicips_check.conf
-    +-- prepnode_ipscan_diff.sh ## cron 시 실행되며, 주기적으로 ip list check
-    +-- prepnode_reload.sh     ## 처음 nignx 실행 시 실행되며, conf.d 파일과 prepnode_dynamicips_check.conf 비교 후 reload
+|   +-- prepnode_dynamicips_check.conf
+|   +-- prepnode_ipscan_diff.sh ## cron 시 실행되며, 주기적으로 ip list check
+|   +-- prepnode_reload.sh     ## 처음 nignx 실행 시 실행되며, conf.d 파일과 prepnode_dynamicips_check.conf 비교 후 reload
 +-- user_conf
-    +-- userADD_allow_IP.conf  ## user 가 IP 추가할 경우
+|   +-- userADD_allow_IP.conf  ## user 가 IP 추가할 경우
 ```
 
 ## USER NGINX ALLOW IP ADD 시 conf file
